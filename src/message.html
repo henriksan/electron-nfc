@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="./css/grid.css" type="text/css" media="all" />
+    <style>
+      body{
+        background-image: url('./img/body-bg.gif');
+      }
+      .msg-container {
+       
+      }
+      .boxed {
+          position: absolute;
+          top: -70px;
+          right: 0;
+          left: 0;
+          bottom: 0;
+          margin: auto;
+          width: 70%;
+          height: 200px;
+          border: 1px solid #eee ;
+          border-radius: 5px;
+          line-height: 200px;
+          text-align: center;
+      }
+      .button-wrapper {
+          position: relative;
+          margin: auto;
+          line-height: 30px;
+          padding-top: 30px;
+          text-align: right;
+      }      
+      .box > p {
+        margin: auto;
+      }
+      .warning-icon {
+        position: relative;
+        top: 15px;
+        margin-right: 20px;
+      }
+    </style>
+    
+</head>
+<body>
+  <div class="boxed">         
+      <p><img class="warning-icon" src="./img/warning_white_288x288.png" width="50" height="50" /><span id="msgText">Error occurred while requesting to server!</span></p>   
+      <div class="button-wrapper">
+        <a id="confirmButton" onclick="confirmAction()" href="#" class="mybutton">OK</a>
+      </div>
+  </div>
+</body>
+ <script>
+      (function() {
+        const { ipcRenderer } = window.require("electron");
+        ipcRenderer.send("request-msg", "");
+        
+        function confirmAction() {
+            ipcRenderer.send("returnToMain", "");
+        }
+        ipcRenderer.on("error-msg", (event, obj) => {
+          document.getElementById("msgText").textContent = obj;
+        });     
+      })();
+</script>
+</html>

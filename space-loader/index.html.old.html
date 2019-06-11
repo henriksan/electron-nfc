@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>space-load</title>
+  
+    <link rel="stylesheet" href="css/reset.min.css">
+
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+<div id="particles-background" class="vertical-centered-box"></div>
+<div id="particles-foreground" class="vertical-centered-box"></div>
+
+<div class="vertical-centered-box">
+  <div class="content">
+    <div class="loader-circle"></div>
+    <div class="loader-line-mask">
+      <div class="loader-line"></div>
+    </div>
+    <img src="cvlt.png" height=140 width=140>
+    <p id="about-version" style="">Version: 1.1.0  </p>
+  </div>
+</div>
+
+</div>
+<script>
+  const { app } = require('electron').remote
+  document.getElementById('about-version').innerText = `Version: ${app.getVersion()}`
+</script>
+
+
+<script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>

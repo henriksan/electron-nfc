@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>App Settings</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+    <div class="back" ng-app="myApp" ng-controller="formCtrl">
+        <div
+            class="container">
+            <div
+                class="shaddow">
+                <div>
+                    <h2 class="formC">App Settings</h2>
+                    <hr class="style-six">
+                    <div>
+                        <div class="field that">
+                            <input required type="text" ng-model="url" name="url" id="url" placeholder="Enter game url">
+                            <!-- <label for="fullname">GAme Url:<img src="./img/icons8-dice-32.png" style="width:17px;color:gray"></label> -->
+                        </div>
+                        <div class="field that">
+                            <input required type="text" ng-model="deviceID" name="device_id" id="device_id" placeholder="Enter Device Id">
+                            <!-- <label for="email">Device Id: <img src="./img/and.png" style="width:17px"></label> -->
+                        </div>
+                        <div class="bton">
+                            <button ng-disabled="url == '' || deviceID == ''" ng-click="submitConfig()" class="btn btn-default fb">Submit</button>
+                        </div>
+                    </div>
+                    <h4 style="text-align:center">{{message}}</h4>
+                </div>
+            </div>
+            <div
+                ng-if="!isReady"
+                class="page-hero back">
+                <div
+                    id="page-loader-auth"
+                    class="hero"
+                    style="width: 200px; height: auto;" />
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
