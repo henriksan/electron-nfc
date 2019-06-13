@@ -6,4 +6,4 @@ Remove `package-lock.json`
 Do
 
 - `npm install --unsafe-perm=true --allow-root`
-- `npm rebuild` (or  `npm rebuild:win` on windows)
+- `npm run rebuild` (or  `npm run rebuild:win` on windows)
